@@ -1,0 +1,10 @@
+.btn-wrap{
+    position:absolute;
+    text-align:center;
+    top: 73%;
+    left: 40%;
+    width:1px;           
+    height:1px;               
+    padding:0;
+    margin: 5px 5px 9px 2px;  
+}

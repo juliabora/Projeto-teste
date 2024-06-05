@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="JS/spritesheet2.js"></script>
+    <script src="JS/animacao2.js"></script>
+    <script src="JS/teclado2.js"></script>
+    <script src="JS/gato.js"></script>
+</head>
+<body>
+    <canvas id="canvasSonic" width="1450" height="700">
+
+    </canvas>
+    <div class="game-board">
+        <script>
+            var canvas = document.getElementById('canvasSonic');
+            var context = canvas.getContext('2d');
+
+            var teclado = new Teclado(document);
+            var animacao = new Animacao(context)
+            var imgGato = new Image();
+            imgGato.src = 'img/alienS.png';
+
+            var gato = new Gato(context, teclado, imgGato);
+            gato.x = 200;
+            gato.y = 0;
+            animacao.novoSprite(gato);
+            
+            imgGato.onload = function(){
+                animacao.ligar();
+            }
+        </script>
+    </div>
+</body>
+</html>

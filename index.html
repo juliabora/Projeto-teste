@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/spritesheetS.js"></script>
+    <script src="js/animacaoS.js"></script>
+    <script src="js/tecladoS.js"></script>
+    <script src="js/maxS.js"></script>
+</head>
+<body>
+    <canvas id="canvasSonic" width="1450" height="700">
+
+    </canvas>
+    <audio autoplay loop>
+        <source src="snd/TRILHA SONORA JOGO.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+    <script>
+        var canvas = document.getElementById('canvasSonic');
+        var context = canvas.getContext('2d');
+
+        var teclado = new Teclado(document);
+        var animacao = new Animacao(context)
+
+        var imgSonic = new Image();
+        imgSonic.src = 'img/max2.png';
+
+        var sonic = new Sonic(context, teclado, imgSonic);
+        sonic.x = 12;
+        sonic.y = 250;
+        animacao.novoSprite(sonic);
+
+        var fundo = new Fundo(context, teclado, fundo);
+        fundo.x = 0;
+        fundo.y = 0;
+        animacao.novoSprite(fundo);
+        
+        imgSonic.onload = function(){
+            animacao.ligar();
+        }
+    </script>
+    
+</body>
+</html>  
